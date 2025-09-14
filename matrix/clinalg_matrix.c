@@ -2,25 +2,31 @@
 #include "string.h"
 #include "matrix/clinalg_matrix.h"
 
-void clinalg_matrix_set(clinalg_matrix_t *matrix, uint8_t row_index, uint8_t col_index, float value)
+clinalg_matrix_t clinalg_matrix_create(uint8_t rows, uint8_t cols, float *data)
+{
+    clinalg_matrix_t matrix = {0};
+    matrix.rows = rows;
+    matrix.cols = cols;
+
+    for (uint8_t i = 0; i < rows; i++)
+    {
+        for (uint8_t j = 0; j < cols; j++)
+        {
+            matrix.data[i][j] = data[i * cols + j];
+        }
+    }
+
+    return matrix;
+}
+
+void clinalg_matrix_set_member(clinalg_matrix_t *matrix, uint8_t row_index, uint8_t col_index, float value)
 {
     matrix->data[row_index][col_index] = value;
 }
 
-float clinalg_matrix_get(clinalg_matrix_t matrix, uint8_t row_index, uint8_t col_index)
+float clinalg_matrix_get_member(clinalg_matrix_t matrix, uint8_t row_index, uint8_t col_index)
 {
     return matrix.data[row_index][col_index];
-}
-
-void clinalg_matrix_set_data(clinalg_matrix_t *matrix, float *data)
-{
-    for (uint8_t i = 0; i < matrix->rows; i++)
-    {
-        for (uint8_t j = 0; j < matrix->cols; j++)
-        {
-            matrix->data[i][j] = data[i * matrix->cols + j];
-        }
-    }
 }
 
 clinalg_matrix_t clinalg_matrix_add(clinalg_matrix_t matrix_a, clinalg_matrix_t matrix_b)

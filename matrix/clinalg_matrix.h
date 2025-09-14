@@ -44,9 +44,9 @@ typedef struct
     float       data[C_LINEAR_ALGEBRA_MAX_ROWS][C_LINEAR_ALGEBRA_MAX_COLS];
 } clinalg_matrix_t;
 
-void clinalg_matrix_set(clinalg_matrix_t *matrix, uint8_t row_index, uint8_t col_index, float Value);
-float clinalg_matrix_get(clinalg_matrix_t matrix, uint8_t row_index, uint8_t col_index);
-void clinalg_matrix_set_data(clinalg_matrix_t *matrix, float *data);
+clinalg_matrix_t clinalg_matrix_create(uint8_t rows, uint8_t cols, float *);
+void clinalg_matrix_set_member(clinalg_matrix_t *matrix, uint8_t row_index, uint8_t col_index, float value);
+float clinalg_matrix_get_member(clinalg_matrix_t matrix, uint8_t row_index, uint8_t col_index);
 float clinalg_matrix_determinant(clinalg_matrix_t matrix);
 clinalg_matrix_t clinalg_matrix_add(clinalg_matrix_t matrix_a, clinalg_matrix_t matrix_b);
 clinalg_matrix_t clinalg_matrix_subtract(clinalg_matrix_t matrix_a, clinalg_matrix_t matrix_b);
