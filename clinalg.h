@@ -27,7 +27,7 @@
 extern "C" {
 #endif
 
-#include "Matrix/Matrix.h"
+#include "matrix/clinalg_matrix.h"
 
 
 #ifdef __cplusplus

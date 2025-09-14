@@ -32,22 +32,22 @@ extern "C" {
 #define C_LINEAR_ALGEBRA_MAX_MATRIX_DATA 	32
 
 typedef struct {
-	uint8_t 	NumRows;
-	uint8_t 	NumCols;
-	float 		Data[C_LINEAR_ALGEBRA_MAX_MATRIX_DATA];
-} CLinearAlgebra_Matrix_t;
+	uint8_t 	rows;
+	uint8_t 	cols;
+	float 		data[C_LINEAR_ALGEBRA_MAX_MATRIX_DATA];
+} clinalg_matrix_t;
 
-void CLinearAlgebra_Matrix_SetValue(CLinearAlgebra_Matrix_t *Matrix, uint8_t RowIdx, uint8_t ColIdx, float Value);
-float CLinearAlgebra_Matrix_GetValue(CLinearAlgebra_Matrix_t Matrix, uint8_t RowIdx, uint8_t ColIdx);
-void CLinearAlgebra_Matrix_SetData(CLinearAlgebra_Matrix_t *Matrix, float *Data);
-float CLinearAlgebra_Matrix_Determinant(CLinearAlgebra_Matrix_t Matrix);
-CLinearAlgebra_Matrix_t CLinearAlgebra_Matrix_Add(CLinearAlgebra_Matrix_t MatrixA, CLinearAlgebra_Matrix_t MatrixB);
-CLinearAlgebra_Matrix_t CLinearAlgebra_Matrix_Subtract(CLinearAlgebra_Matrix_t MatrixA, CLinearAlgebra_Matrix_t MatrixB);
-CLinearAlgebra_Matrix_t CLinearAlgebra_Matrix_Multiply(CLinearAlgebra_Matrix_t MatrixA, CLinearAlgebra_Matrix_t MatrixB);
-CLinearAlgebra_Matrix_t CLinearAlgebra_Matrix_Transpose(CLinearAlgebra_Matrix_t MatrixA);
-CLinearAlgebra_Matrix_t CLinearAlgebra_Matrix_Cofactor(CLinearAlgebra_Matrix_t Matrix, uint8_t p, uint8_t q);
-CLinearAlgebra_Matrix_t CLinearAlgebra_Matrix_Adjugate(CLinearAlgebra_Matrix_t Matrix);
-CLinearAlgebra_Matrix_t CLinearAlgebra_Matrix_Inverse(CLinearAlgebra_Matrix_t Matrix);
+void clinalg_matrix_set(clinalg_matrix_t *matrix, uint8_t row_index, uint8_t col_index, float Value);
+float clinalg_matrix_get(clinalg_matrix_t matrix, uint8_t row_index, uint8_t col_index);
+void clinalg_matrix_set_data(clinalg_matrix_t *matrix, float *data);
+float clinalg_matrix_determinant(clinalg_matrix_t matrix);
+clinalg_matrix_t clinalg_matrix_add(clinalg_matrix_t matrix_a, clinalg_matrix_t matrix_b);
+clinalg_matrix_t clinalg_matrix_subtract(clinalg_matrix_t matrix_a, clinalg_matrix_t matrix_b);
+clinalg_matrix_t clinalg_matrix_multiply(clinalg_matrix_t matrix_a, clinalg_matrix_t matrix_b);
+clinalg_matrix_t clinalg_matrix_transpose(clinalg_matrix_t matrix_a);
+clinalg_matrix_t clinalg_matrix_cofactor(clinalg_matrix_t matrix, uint8_t p, uint8_t q);
+clinalg_matrix_t clinalg_matrix_adjugate(clinalg_matrix_t matrix);
+clinalg_matrix_t clinalg_matrix_inverse(clinalg_matrix_t matrix);
 #ifdef __cplusplus
 }
 #endif
