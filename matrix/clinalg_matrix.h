@@ -29,12 +29,19 @@ extern "C" {
 
 #include "stdint.h"
 
-#define C_LINEAR_ALGEBRA_MAX_MATRIX_DATA 	32
+#ifndef C_LINEAR_ALGEBRA_MAX_ROWS
+#define C_LINEAR_ALGEBRA_MAX_ROWS   4
+#endif
 
-typedef struct {
-	uint8_t 	rows;
-	uint8_t 	cols;
-	float 		data[C_LINEAR_ALGEBRA_MAX_MATRIX_DATA];
+#ifndef C_LINEAR_ALGEBRA_MAX_COLS
+#define C_LINEAR_ALGEBRA_MAX_COLS   4
+#endif
+
+typedef struct
+{
+    uint8_t     rows;
+    uint8_t     cols;
+    float       data[C_LINEAR_ALGEBRA_MAX_ROWS][C_LINEAR_ALGEBRA_MAX_COLS];
 } clinalg_matrix_t;
 
 void clinalg_matrix_set(clinalg_matrix_t *matrix, uint8_t row_index, uint8_t col_index, float Value);
